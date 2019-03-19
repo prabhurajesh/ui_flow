@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:ui_flow/components/drawerTitle.dart';
+import 'package:ui_flow/services/api.dart';
 
 class AppDrawer extends StatelessWidget {
   final String screenName;
-
-  AppDrawer(this.screenName);
+  final User user;
+  AppDrawer(this.screenName, {this.user});
   @override
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
@@ -15,7 +17,7 @@ class AppDrawer extends StatelessWidget {
           DrawerHeader(
             child: Column(
               //mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
                 Padding(
                   padding: EdgeInsets.only(left: 5),
@@ -34,14 +36,14 @@ class AppDrawer extends StatelessWidget {
                   padding: EdgeInsets.only(top: 5),
                 ),
                 Text(
-                  "Rajesh Cool Dude",
+                  user.name,
                   style: TextStyle(color: Colors.white, fontSize: 18),
                 ),
                 Padding(
                   padding: EdgeInsets.only(top: 5),
                 ),
                 Text(
-                  "+91 8897536459",
+                  user.number,
                   style: TextStyle(color: Colors.white, fontSize: 18),
                 )
               ],
@@ -59,10 +61,12 @@ class AppDrawer extends StatelessWidget {
           ),
           DrawerTile(
             screenName: screenName,
-            title: "Crm",
+            title: "Logout",
             homeIcon: Icons.people,
-            navigateTo: "/home",
-            onTap: () {},
+            navigateTo:"/login",
+            onTap: () async{
+              await (await SharedPreferences.getInstance()).clear();
+            },
           ),
         ],
       ),
