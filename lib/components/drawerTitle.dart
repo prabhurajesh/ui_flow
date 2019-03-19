@@ -44,7 +44,7 @@ class DrawerTile extends StatelessWidget {
         if (screenName == title)
           Navigator.pop(context);
         else if (navigateTo != null)
-          Navigator.of(context).pushNamed("$navigateTo");
+          Navigator.of(context).pushReplacementNamed("$navigateTo");
       },
     );
   }

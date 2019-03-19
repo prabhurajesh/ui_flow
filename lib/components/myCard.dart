@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class MyCard extends StatelessWidget {
   final String title;
-  final String content;
+  final Widget content;
 
   MyCard({
     @required this.title,
@@ -21,42 +21,43 @@ class MyCard extends StatelessWidget {
           elevation: 10,
           //shape: StadiumBorder(),
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(25.0),
+            borderRadius: BorderRadius.circular(15.0),
           ),
           child: Column(children: <Widget>[
             Container(
               height: height * 0.06,
               width: width,
               decoration: BoxDecoration(
-                  color: Colors.grey[700],
+                  color: Colors.blue,
                   borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(25),
-                      topRight: Radius.circular(25))),
+                      topLeft: Radius.circular(15),
+                      topRight: Radius.circular(15))),
               child: Center(
                 child: Text(
                   title,
                   textAlign: TextAlign.center,
                   style: TextStyle(
                       color: Colors.white,
-                      fontSize: 30,
-                      fontWeight: FontWeight.w700),
+                      fontSize: 23,
+                      fontWeight: FontWeight.w500),
                 ),
               ),
             ),
-            Container(
-              height: height * 0.09,
-              width: width,
-              child: Center(
-                child: Text(
-                  content,
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 25,
-                      fontWeight: FontWeight.w700),
-                ),
-              ),
-            )
+              content
+//            Container(
+//              height: height * 0.09,
+//              width: width,
+//              child: Center(
+//                child: Text(
+//                  content,
+//                  textAlign: TextAlign.center,
+//                  style: TextStyle(
+//                      color: Colors.black,
+//                      fontSize: 25,
+//                      fontWeight: FontWeight.w700),
+//                ),
+//              ),
+//            )
           ])),
     );
   }
