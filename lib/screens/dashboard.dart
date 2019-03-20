@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:ui_flow/components/myCard.dart';
 import 'package:ui_flow/services/api.dart';
 
-class HomeScreen extends StatefulWidget {
+class DashBoard extends StatefulWidget {
   final User user;
-  const HomeScreen({this.user});
-  _HomeScreen createState() => _HomeScreen();
+  const DashBoard({this.user});
+  _DashBoard createState() => _DashBoard();
 }
 
-class _HomeScreen extends State<HomeScreen> {
+class _DashBoard extends State<DashBoard> {
   // String mobile = "";
   bool search = false;
   @override
@@ -32,23 +32,33 @@ class _HomeScreen extends State<HomeScreen> {
           children: <Widget>[
             MyCard(
               title: "Today's Revenue",
-              content: Expanded(child: Container(child: Center(child: Text("Panel Content")))),
+              content: Expanded(
+                  child:
+                      Container(child: Center(child: Text("Panel Content")))),
             ),
             MyCard(
               title: "Today's Forecast",
-              content: Expanded(child: Container(child: Center(child: Text("Panel Content")))),
+              content: Expanded(
+                  child:
+                      Container(child: Center(child: Text("Panel Content")))),
             ),
             MyCard(
               title: "Yesterday's Revenue",
-              content: Expanded(child: Container(child: Center(child: Text("Panel Content")))),
+              content: Expanded(
+                  child:
+                      Container(child: Center(child: Text("Panel Content")))),
             ),
             MyCard(
               title: "#Today's Customers",
-              content: Expanded(child: Container(child: Center(child: Text("Panel Content")))),
+              content: Expanded(
+                  child:
+                      Container(child: Center(child: Text("Panel Content")))),
             ),
             MyCard(
               title: "#Yesterday's Customers",
-              content: Expanded(child: Container(child: Center(child: Text("Panel Content")))),
+              content: Expanded(
+                  child:
+                      Container(child: Center(child: Text("Panel Content")))),
             ),
           ],
         ),

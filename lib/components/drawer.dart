@@ -6,9 +6,13 @@ import 'package:ui_flow/services/api.dart';
 class AppDrawer extends StatelessWidget {
   final String screenName;
   final User user;
+  String pwd = "";
+  String username = "";
+
   AppDrawer(this.screenName, {this.user});
   @override
   Widget build(BuildContext context) {
+    // List<User> users = await api.loginUser(username.trim(), pwd.trim());
     var width = MediaQuery.of(context).size.width;
     return Drawer(
       child: ListView(
@@ -57,14 +61,23 @@ class AppDrawer extends StatelessWidget {
             title: "Inventory",
             homeIcon: Icons.offline_bolt,
             navigateTo: "/home",
-            onTap: () {},
+            onTap: () {
+              // SharedPreferences sharedPreferences =
+              //     await SharedPreferences.getInstance();
+              // await sharedPreferences.setString("username", username);
+              // await sharedPreferences.setString("password", pwd);
+              // Navigator.pushReplacement(
+              //     context,
+              //     MaterialPageRoute(
+              //         builder: (context) => DropDownScreen(user: users[0])));
+            },
           ),
           DrawerTile(
             screenName: screenName,
             title: "Logout",
             homeIcon: Icons.people,
-            navigateTo:"/login",
-            onTap: () async{
+            navigateTo: "/login",
+            onTap: () async {
               await (await SharedPreferences.getInstance()).clear();
             },
           ),
